@@ -7,7 +7,7 @@
 
 </pre>
 <p align="center"><em>Latin: "to know, understand"</em></p>
-<p align="center"><strong>Information Gathering · Reconnaissance · Enumeration · Scanning</strong></p>
+<p align="center"><strong>Scanning · Information Gathering · Reconnaissance · Enumeration</strong></p>
 
 <!-- TABLE OF CONTENTS -->
 <details>
