@@ -62,12 +62,12 @@ sudo apt install python3
 
 ```sh
 chmod +x scire.py
-./scire.py
+sudo ./scire.py
 ```
 OR
 
 ```sh
-python3 scire.py
+sudo python3 scire.py
 ```
 
 <!-- LICENSE -->
