@@ -53,8 +53,8 @@ sudo apt install python3
 1. Clone the repo
    ```sh
    git clone https://github.com/alex-aviles/scire.git
-   cd scire
    pip install -r requirements.txt
+   cd scire
    ```
 
 <!-- USAGE -->
