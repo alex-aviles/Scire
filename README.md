@@ -1,12 +1,13 @@
 <a id="readme-top"></a>
+
 <pre align="center">
  _______ _______ _____  ______ _______
  |______ |         |   |_____/ |______
  ______| |_____  __|__ |    \_ |______
-                                      
+
 </pre>
 <p align="center"><em>Latin: "to know, understand"</em></p>
-<p align="center">Information Gathering · Reconnaissance · Enumeration · Scanning</p>
+<p align="center"><strong>Information Gathering · Reconnaissance · Enumeration · Scanning</strong></p>
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -14,8 +15,6 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -29,36 +28,46 @@
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
+---
+
 ## About The Project
 
-Scire is an information gathering tool.
+**Scire** is an information gathering and reconnaissance tool for security professionals and researchers. Named after the Latin verb *scīre* — "to know", this tool combines multiple methods of enumeration and scanning into a unified and scriptable interface.
 
-<!-- GETTING STARTED -->
+---
+
 ## Getting Started
 
-See below to run Scire!
+Follow these instructions to get a copy of **Scire** running locally.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* python3
-  ```sh
-  pip install python3
-  ```
+Ensure you have **Python 3** installed:
+
+```sh
+sudo apt install python3
+```
 
 ### Installation
 
 1. Clone the repo
    ```sh
    git clone https://github.com/alex-aviles/scire.git
+   cd scire
+   pip install -r requirements.txt
    ```
 
 <!-- USAGE -->
 ## Usage
 
 ```sh
+chmod +x scire.py
 ./scire.py
+```
+OR
+
+```sh
+python3 scire.py
 ```
 
 <!-- LICENSE -->
