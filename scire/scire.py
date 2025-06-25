@@ -5,6 +5,8 @@ import time
 import argparse
 import chardet
 
+
+
 def parse_file(filename):
     targets = []
     try:
@@ -27,6 +29,9 @@ def seconds_to_str(time):
 def runtime(launch_time):
     return seconds_to_str(time.time() - launch_time)
 
+def print_epilog(launch_time):
+    print(f"\nScire ran for {runtime(launch_time)}. For Knowledge!")
+
 banner = """\033[91m
  _______ _______ _____  ______ _______
  |______ |         |   |_____/ |______
@@ -48,14 +53,15 @@ def main():
         parser = argparse.ArgumentParser(
             description="Scire - Scanning, Information Gathering, Recon, and Enumeration",
             formatter_class=argparse.RawDescriptionHelpFormatter,
-            add_help=False
+            add_help=False,
+            epilog=None
         )
 
         group = parser.add_mutually_exclusive_group(required=not known_args.help)
         group.add_argument('-t', '--target', help='Assign target(s) - (comma separated, no spaces, if multiple)')
         group.add_argument('-f', '--file', help='Read list of targets from file - (one target ip address per line)')
 
-        parser.add_argument('-n', '--nmap-portscan', action='store_true', help='Run nmap service or script scan')
+        parser.add_argument('-n', '--nmap_portscan', action='store_true', help='Run nmap service or script scan')
         parser.add_argument('-o', '--output', help='Save to provided filename')
         parser.add_argument('-r', '--recursive', action='store_true', help='Recursively search over all subdomains')
         parser.add_argument('-v', '--verbose', action='store_true', help='Print debug info and full request output')
@@ -66,18 +72,28 @@ def main():
 
         if args.target:
             print(args.target)
-        
+            #print_epilog(launch_time)
+            #sys.exit(0)
+
         if args.file:
             targets = parse_file(args.file)
             print(targets)
+            print_epilog(launch_time)
+            sys.exit(0)
+
+        if args.nmap_portscan:
+            time.sleep(10)
+            print_epilog(launch_time)
+            sys.exit(0)
 
         if args.help:
-            parser.epilog = f"Scire ran for {runtime(launch_time)}. For Knowledge!"
             parser.print_help()
+            print_epilog(launch_time)
             sys.exit(0)
 
     except KeyboardInterrupt:
-        print(f"\nScire ran for {seconds_to_str(time.time() - launch_time)}")
+        print("Scire execution cancelled.")
+        print_epilog(launch_time)
         print("Closing Scire...")
         sys.exit(0)
 
